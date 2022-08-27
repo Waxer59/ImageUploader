@@ -1,0 +1,16 @@
+@import 'colors';
+
+*{
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    color: $black;
+}
+
+body{
+    background: $dark-white;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+}

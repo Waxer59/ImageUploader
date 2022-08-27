@@ -1,0 +1,36 @@
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  color: rgb(15, 15, 15);
+}
+
+body {
+  background: #e5e5e5;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .main {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+  background: #f1f1f1;
+  border-radius: 20px;
+  box-shadow: -6px -6px 14px rgba(255, 255, 255, 0.7), -6px -6px 10px rgba(255, 255, 255, 0.5), 6px 6px 8px rgba(255, 255, 255, 0.075), 6px 6px 10px rgba(0, 0, 0, 0.15);
+}
+body .main .image {
+  height: 300px;
+  width: 500px;
+}
+
+/*# sourceMappingURL=imageViewer.css.map */

@@ -1,0 +1,55 @@
+.drag-area {
+  border: 2px dashed $black;
+  height: 300px;
+  width: 500px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.drag-area.active {
+  border: 2px solid $black;
+}
+.drag-area .icon {
+  font-size: 100px;
+}
+.drag-area header {
+  font-size: 30px;
+  font-weight: 500;
+}
+.drag-area span {
+  font-size: 25px;
+  font-weight: 500;
+  margin: 10px 0 15px 0;
+}
+.drag-area #browse-file {
+  padding: 10px 25px;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  color: $white;
+  background: $black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.drag-area img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.close {
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 452px;
+  margin-bottom: 240px;
+  i{
+    color: $white;
+    font-size: 24px;
+  }
+}
