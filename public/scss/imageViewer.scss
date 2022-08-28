@@ -13,12 +13,13 @@ body {
     background: $white;
     border-radius: 20px;
     box-shadow: -6px -6px 14px rgba(255, 255, 255, 0.7),
-          -6px -6px 10px rgba(255, 255, 255, 0.5),
-          6px 6px 8px rgba(255, 255, 255, 0.075),
-          6px 6px 10px rgba(0, 0, 0, 0.15);
-    .image{
+      -6px -6px 10px rgba(255, 255, 255, 0.5),
+      6px 6px 8px rgba(255, 255, 255, 0.075), 6px 6px 10px rgba(0, 0, 0, 0.15);
+    .image {
+      img{
         height: 300px;
         width: 500px;
+      }
     }
   }
 }

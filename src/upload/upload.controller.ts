@@ -2,19 +2,19 @@ import {
   Controller,
   Get,
   Post,
-  Body,
-  Patch,
   Param,
-  Delete,
   UseInterceptors,
   BadRequestException,
-  UploadedFile
+  UploadedFile,
+  Res
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { fileFilter } from './helpers/fileFilter.helper';
 import { UploadService } from './upload.service';
+import express, { Request, Response } from 'express';
 import { fileNamer } from './helpers/fileNamer.helper';
+import { ParseShortidPipe } from '../common/pipes/parse-shortid.pipe';
 
 @Controller('api/upload')
 export class UploadController {
@@ -23,25 +23,30 @@ export class UploadController {
   @Post()
   @UseInterceptors(
     FileInterceptor('file', {
-      fileFilter,
+      fileFilter: fileFilter,
       storage: diskStorage({
         destination: './data',
         filename: fileNamer
       })
     })
   )
-  create(@UploadedFile() file: Express.Multer.File) {
+  async create(@UploadedFile() file: Express.Multer.File) {
     if (!file) {
       throw new BadRequestException('Make sure that the file is an image');
     }
 
-    const imageCode = this.uploadService.createImage(file.filename);
+    const imageCode = await this.uploadService.createImage(file.filename);
 
-    return `http://localhost:3000/${imageCode}`;
+    return { code: imageCode };
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.uploadService.findOne(+id);
+  @Get(':code')
+  async findOne(
+    @Param('code', ParseShortidPipe) code: string,
+    @Res() res: Response
+  ) {
+    const path = await this.uploadService.getImage(code);
+
+    res.sendFile(path);
   }
 }

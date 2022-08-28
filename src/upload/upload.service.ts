@@ -1,8 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { Img } from './entities/upload.entity';
 import shortid = require('shortid');
 import { InjectModel } from '@nestjs/mongoose';
+import { join } from 'path';
+import { existsSync } from 'fs';
 
 @Injectable()
 export class UploadService {
@@ -14,12 +16,20 @@ export class UploadService {
   async createImage(imgName: string) {
     const code = shortid.generate();
 
-    const image = await this.imgModel.create({img: imgName, code});
-    
+    const image = await this.imgModel.create({ img: imgName, code });
+
     return code;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} upload`;
+  async getImage(code: string) {
+    const { img } = await this.imgModel.findOne({ code });
+
+    const path = join(__dirname, '..', '..', 'data', img);
+
+    if(!existsSync(path)){
+      throw new BadRequestException(`No image found with code ${code}`)
+    }
+
+    return path;
   }
 }

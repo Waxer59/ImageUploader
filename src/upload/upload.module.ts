@@ -3,6 +3,7 @@ import { UploadService } from './upload.service';
 import { UploadController } from './upload.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ImageSchema, Img } from './entities/upload.entity';
+import { ConfigModule } from '@nestjs/config';
 
 
 @Module({
@@ -15,7 +16,8 @@ import { ImageSchema, Img } from './entities/upload.entity';
         schema: ImageSchema,
       },
     ]),
+    ConfigModule.forRoot(),
   ],
-  exports: [MongooseModule]
+  exports: [MongooseModule, UploadService]
 })
 export class UploadModule {}
