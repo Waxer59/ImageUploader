@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { Img } from './entities/upload.entity';
 import shortid = require('shortid');
@@ -22,14 +22,18 @@ export class UploadService {
   }
 
   async getImage(code: string) {
-    const { img } = await this.imgModel.findOne({ code });
-
-    const path = join(__dirname, '..', '..', 'data', img);
-
-    if(!existsSync(path)){
-      throw new BadRequestException(`No image found with code ${code}`)
+    try {
+      const { img } = await this.imgModel.findOne({ code });
+  
+      const path = join(__dirname, '..', '..', 'data', img);
+  
+      if(!existsSync(path)){
+        throw new BadRequestException(`No image found with code ${code}`);
+      }
+  
+      return path;
+    } catch (error) {
+      throw new NotFoundException('The image you were looking for does not exist')
     }
-
-    return path;
   }
 }

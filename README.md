@@ -10,10 +10,11 @@ Esta es una aplicacion para subir imagenes y visualizarlas con la url dada
 yarn
 ```
 
-3. Crear la imagen de docker para levantar la base de datos con el comando:
+3. Crear la imagen de docker para levantar la base de datos con el comando (Importante tener el docker daemon abierto):
 ```
 docker-compose -f docker-compose.yml --env-file .env up --build
 ```
+
 4. Si ya esta creada la imagen pero no esta levantada la base de datos levantar la base de datos con el comado:
 ```
 docker-compose up -d

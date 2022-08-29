@@ -1,4 +1,4 @@
-import { ArgumentMetadata, BadRequestException, Injectable, PipeTransform } from '@nestjs/common';
+import { ArgumentMetadata, BadRequestException, Injectable, PipeTransform, NotFoundException } from '@nestjs/common';
 import shortid = require('shortid');
 
 @Injectable()
