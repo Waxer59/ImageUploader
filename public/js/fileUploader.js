@@ -78,7 +78,7 @@ function showFile() {
 
 sendBtn.addEventListener('submit', (e) => {
   e.preventDefault();
-  if (input.files.length === 0) {
+  if (!file) {
     alert('Please upload a file to continue');
     return;
   }
@@ -86,7 +86,7 @@ sendBtn.addEventListener('submit', (e) => {
   main.classList.remove('main');
 
   var data = new FormData();
-  data.append('file', input.files[0]);
+  data.append('file', file);
 
   fetch('/api/upload', {
     method: 'POST',
