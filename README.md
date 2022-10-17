@@ -26,8 +26,7 @@ yarn start:dev
 ```
 
 ## Tecnologias usadas
-* Node
-* Express
+* Nestjs
 * MongoDB
 * Docker
 * Font Awesome
