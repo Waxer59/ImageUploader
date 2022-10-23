@@ -1,31 +1,31 @@
 # ImageUploader
-Esta es una aplicacion para subir imagenes y visualizarlas con la url dada
+This is an application to upload images and visualize them with the given url
 
-# Levantar el proyecto en modo dev
+# Run the project in dev mode
 
-1. Completar el archivo de variables de entorno __.env.template__ y una vez completado renombrarlo a .env
+1. Complete the environment variable file __.env.template__ and once completed rename it to __.env__
 
-2. Instalar todas las dependencias del proyecto con el comando: 
+2. Install all project dependencies with the command: 
 ```
 yarn
 ```
 
-3. Crear la imagen de docker para levantar la base de datos con el comando (Importante tener el docker daemon abierto):
+3. Create the docker image to run the database with the command (Important to have the docker daemon open):
 ```
 docker-compose -f docker-compose.yml --env-file .env up --build
 ```
 
-4. Si ya esta creada la imagen pero no esta levantada la base de datos levantar la base de datos con el comado:
+4. If the image has already been created, use this command to create the database:
 ```
 docker-compose up -d
 ```
 
-5. Ejecutar el proyecto con el comando:
+1. Run the project with the command:
 ```
 yarn start:dev
 ```
 
-## Tecnologias usadas
+## Technologies used
 * Node
 * Express
 * MongoDB
@@ -33,6 +33,6 @@ yarn start:dev
 * Font Awesome
 * HandleBars
 
-## Notas
-* Todas las imagenes son almacenadas localmente dentro de la carpeta __data__
-* Los formatos de imagenes aceptados son [JPG, PNG, JPEG]
+## Notes
+* All images are stored locally in the __data__ folder.
+* Accepted image formats are __[JPG, PNG, JPEG]__.
