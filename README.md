@@ -26,13 +26,12 @@ yarn start:dev
 ```
 
 ## Technologies used
-* Node
-* Express
+* Nestjs
 * MongoDB
 * Docker
 * Font Awesome
 * HandleBars
 
 ## Notes
-* All images are stored locally in the __data__ folder.
+* All images are stored locally inside the __data__ folder.
 * Accepted image formats are __[JPG, PNG, JPEG]__.
