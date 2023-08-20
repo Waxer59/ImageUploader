@@ -8,7 +8,6 @@ import {
   UseFilters
 } from '@nestjs/common';
 import express, { Request, Response } from 'express';
-import { AppService } from './app.service';
 import { UploadService } from './upload/upload.service';
 import { ParseShortidPipe } from './common/pipes/parse-shortid.pipe';
 import { join } from 'path';
@@ -17,7 +16,6 @@ import shortid = require('shortid');
 @Controller()
 export class AppController {
   constructor(
-    private readonly appService: AppService,
     private readonly uploadService: UploadService
   ) {}
 
