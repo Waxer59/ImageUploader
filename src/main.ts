@@ -13,7 +13,7 @@ async function bootstrap() {
   //! Page 404
   app.useGlobalFilters(new NotFoundExceptionFilter());
 
-  //*s Change the limit of the img's transfer
+  //* Change the limit of the img's transfer
   app.use(bodyParser.json({ limit: '100mb' }));
   app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }));
 
